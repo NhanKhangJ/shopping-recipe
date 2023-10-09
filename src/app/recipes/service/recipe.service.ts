@@ -10,23 +10,28 @@ import { Subject } from 'rxjs';
 })
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
+  recipes: Recipe[] = [];
 
-  private recipes: Recipe[] = [
-    new Recipe('Another test',
-               'test', 
-               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzFOOPfEjJEgKxYq51rqsWQsq3KuHcSZS3pA&usqp=CAU',
-    [
-      new ingredient('Meat',1),
-      new ingredient('pork', 1)
-      ]),
-    new Recipe('khang', 'test', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzFOOPfEjJEgKxYq51rqsWQsq3KuHcSZS3pA&usqp=CAU',[
-      new ingredient('brocoli',1),
-      new ingredient('Buns', 1)
-    ])
-   ]; 
+  // private recipes: Recipe[] = [
+  //   new Recipe('Another test',
+  //              'test', 
+  //              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzFOOPfEjJEgKxYq51rqsWQsq3KuHcSZS3pA&usqp=CAU',
+  //   [
+  //     new ingredient('Meat',1),
+  //     new ingredient('pork', 1)
+  //     ]),
+  //   new Recipe('khang', 'test', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzFOOPfEjJEgKxYq51rqsWQsq3KuHcSZS3pA&usqp=CAU',[
+  //     new ingredient('brocoli',1),
+  //     new ingredient('Buns', 1)
+  //   ])
+  //  ]; 
 
   constructor(private slService: ShoppinglistService) { }
 
+  setRecipes(recipes: Recipe[]){
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
   
   getRecipee(): Recipe[]{
     return this.recipes.slice();
