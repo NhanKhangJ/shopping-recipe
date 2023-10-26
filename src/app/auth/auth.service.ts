@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject, catchError, map, tap, throwError } from 'rxjs';
-import { environment } from 'src/environments/environment.staging';
+import { environment } from 'src/environments/environment.prod';
 import { User } from './auth/user.model';
 import { Router } from '@angular/router';
 
