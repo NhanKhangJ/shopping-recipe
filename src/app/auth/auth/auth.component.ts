@@ -72,6 +72,7 @@ export class AuthComponent implements OnDestroy {
     componentRef.instance.message = error;
     this.closeSub = componentRef.instance.close.subscribe(() =>{
       this.closeSub.unsubscribe();
+      hostViewContainerRef.clear(); 
       this.onHandleError();
     })
   }
