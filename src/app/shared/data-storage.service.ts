@@ -4,7 +4,8 @@ import { Recipe } from '../recipes/recipe.model';
 import { RecipeService } from '../recipes/service/recipe.service';
 import { map, tap } from 'rxjs';
 // import { environment } from 'src/environments/environment.prod';
-import { environment } from '../../../environment.prod';
+// import { environment } from '../../../environment.prod';
+import { environment } from '/etc/secrets/environment.prod';
 import { AuthService } from '../auth/auth.service';
 
 @Injectable({
